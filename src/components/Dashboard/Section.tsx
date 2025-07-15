@@ -2,11 +2,11 @@ import CardList from "../CardList";
 import useGames from "../../hooks/useGame";
 import FilterList from "../FilterList";
 const Section = () => {
-  const { games, error, isLoading } = useGames();
+  const { data, error, isLoading } = useGames();
   return (
     <div className="flex-5 h-full ml-32">
       <FilterList />
-      <CardList games={games} error={error} isLoading={isLoading} />
+      <CardList games={data} error={error} isLoading={isLoading} />
     </div>
   );
 };
