@@ -18,8 +18,6 @@ const IconList = ({ platform }: Props) => {
     ios: "fa-app-store-ios",
   };
 
-  console.log(platform.slug);
-
   return (
     <>
       <i className={`fa-brands  ${IconMap[platform.slug]}`}></i>

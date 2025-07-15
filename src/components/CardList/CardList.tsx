@@ -7,12 +7,15 @@ import getCroppedImageUrl from "../../services/image-url";
 interface Props {
   games: Game[];
   error: string;
+  isLoading: boolean;
 }
 
-const CardList = ({ games, error }: Props) => {
+const CardList = ({ games, error, isLoading }: Props) => {
+  console.log(isLoading);
   return (
     <div className="w-full h-full flex flex-wrap gap-10 items-center">
       {error && <p>{error}</p>}
+      {isLoading && <div className="text-white text-3xl">Loading....</div>}
       {games.map((game) => (
         <div
           className="border-none w-98 h-88 rounded-xl overflow-hidden bg-slate-800"
@@ -27,7 +30,7 @@ const CardList = ({ games, error }: Props) => {
           <div className="flex items-center justify-between mx-5">
             <ul className="flex gap-2">
               {game.parent_platforms.map(({ platform }) => (
-                <IconList platform={platform} />
+                <IconList platform={platform} key={platform.id} />
               ))}
             </ul>
             <CriticScore score={game.metacritic} />
