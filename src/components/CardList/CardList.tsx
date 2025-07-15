@@ -1,4 +1,3 @@
-import React from "react";
 import { Game } from "../../hooks/useGame";
 import IconList from "./IconList";
 import CriticScore from "./CriticScore";
