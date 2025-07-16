@@ -1,5 +1,6 @@
 import useData from "./useData";
 import { Genre } from "./useGenre";
+import { Platform } from "./usePlatforms";
 
 export interface platform {
     id : number,
@@ -17,6 +18,6 @@ export interface Game {
 // this function is flexible as this receive parameters which are built in for axios parameters for dynamic query
 // passed a dependencies if the current state changed to fetch the data and re-render the component
 // params can be any type of variables since the params are object it wil concat the url and the config of the params which will be /games?selected.id || id=1
-const useGames = (selectedGenre : Genre | null) => useData<Game>('/games', {params : { genres : selectedGenre?.id}}, [selectedGenre?.id]);
+const useGames = (selectedGenre : Genre | null, platform : Platform | null) => useData<Game>('/games', {params : { genres : selectedGenre?.id, platforms : platform?.id}}, [selectedGenre?.id, platform?.id]);
 
 export default useGames
