@@ -13,7 +13,11 @@ const CardList = ({ games, error, isLoading }: Props) => {
   return (
     <div className="w-full h-full flex flex-wrap gap-x-20 gap-y-10 items-center">
       {error && <p>{error}</p>}
-      {isLoading && <div className="text-white text-3xl">Loading....</div>}
+      {isLoading && (
+        <div className="text-white text-3xl w-full h-full flex justify-center mt-50 mr-50">
+          Loading....
+        </div>
+      )}
       {!isLoading &&
         games.map((game) => (
           <div

@@ -8,7 +8,7 @@ const Search = ({ onSearch }: Props) => {
   const ref = useRef<HTMLInputElement>(null);
   return (
     <form
-      className="flex flex-1"
+      className="flex flex-1 items-center justify-center px-32 ml-44"
       onSubmit={(event) => {
         event.preventDefault();
         if (ref.current) onSearch(ref.current.value);
