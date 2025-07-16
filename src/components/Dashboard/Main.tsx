@@ -7,6 +7,7 @@ import { Platform } from "../../hooks/usePlatforms";
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
+  sortOrder: string;
 }
 
 const Main = () => {
@@ -23,7 +24,12 @@ const Main = () => {
         onSelectedGenre={onSelectedGenre}
         selectedGenre={gameQuery.genre}
       />
-      <Section onSelectPlatform={onSelectPlatform} gameQuery={gameQuery} />
+      <Section
+        onSelectPlatform={onSelectPlatform}
+        gameQuery={gameQuery}
+        onChangeOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })}
+        sortOrder={gameQuery.sortOrder}
+      />
     </div>
   );
 };
