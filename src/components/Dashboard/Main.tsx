@@ -8,7 +8,7 @@ const Main = () => {
   const onSelectedGenre = (genre: Genre) => setSelectedGenre(genre);
   return (
     <div className="flex h-full w-full mt-5">
-      <Aside onSelectedGenre={onSelectedGenre} />
+      <Aside onSelectedGenre={onSelectedGenre} selectedGenre={selectedGenre} />
       <Section selectedGenre={selectedGenre} />
     </div>
   );

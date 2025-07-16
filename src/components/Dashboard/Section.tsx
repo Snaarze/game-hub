@@ -4,7 +4,7 @@ import FilterList from "../FilterList";
 import { Genre } from "../../hooks/useGenre";
 
 interface Props {
-  selectedGenre: Genre;
+  selectedGenre: Genre | null;
 }
 const Section = ({ selectedGenre }: Props) => {
   // selectedGenre is the initial state of the useGame, which could be null or re-fetch on the server

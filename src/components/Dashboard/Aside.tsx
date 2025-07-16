@@ -3,12 +3,16 @@ import { Genre } from "../../hooks/useGenre";
 
 interface Props {
   onSelectedGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const Aside = ({ onSelectedGenre }: Props) => {
+const Aside = ({ onSelectedGenre, selectedGenre }: Props) => {
   return (
     <div className="flex-1">
-      <GenreList onSelectedGenre={onSelectedGenre} />
+      <GenreList
+        onSelectedGenre={onSelectedGenre}
+        selectedGenre={selectedGenre}
+      />
     </div>
   );
 };
