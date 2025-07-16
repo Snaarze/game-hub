@@ -23,9 +23,10 @@ const OrderList = ({ onChangeOrder, sortOrder }: Props) => {
         name=""
         id=""
         className="w-68 p-2 rounded-lg bg-slate-700 text-white font-semibold"
-        onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-          onChangeOrder(e.target.value)
-        }
+        onChange={(e: ChangeEvent<HTMLSelectElement>) => {
+          onChangeOrder(e.target.value);
+          console.log(e);
+        }}
       >
         {order.map((list) => (
           <option key={list.value} value={list.value}>

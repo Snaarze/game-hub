@@ -2,7 +2,7 @@ import CardList from "../CardList";
 import useGames from "../../hooks/useGame";
 import FilterList from "../FilterList";
 import { Platform } from "../../hooks/usePlatforms";
-import { GameQuery } from "./Main";
+import { GameQuery } from "../../App";
 
 interface Props {
   gameQuery: GameQuery;

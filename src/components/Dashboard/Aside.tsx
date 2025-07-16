@@ -8,7 +8,7 @@ interface Props {
 
 const Aside = ({ onSelectedGenre, selectedGenre }: Props) => {
   return (
-    <div className="flex-1">
+    <div className="flex-1 sm:hidden lg:block">
       <GenreList
         onSelectedGenre={onSelectedGenre}
         selectedGenre={selectedGenre}

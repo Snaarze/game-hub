@@ -1,16 +1,16 @@
 import React from "react";
+import logo from "../../assets/img/Logo/logo.webp";
+import Search from "./Search";
 
-const Navbar = () => {
+interface Props {
+  onSearch: (searchText: string) => void;
+}
+
+const Navbar = ({ onSearch }: Props) => {
   return (
     <div className="flex mx-5 my-2 gap-10 items-center">
-      <h1>Logo</h1>
-      <div className="flex flex-1">
-        <input
-          type="text"
-          className="flex-1 border-1 border-black py-2 px-10 rounded-3xl"
-          placeholder="Search games..."
-        />
-      </div>
+      <img src={logo} alt="" className="w-14" />
+      <Search onSearch={onSearch} />
       <label htmlFor="check">
         <input type="checkbox" name="dark" id="dark" />
         Dark
