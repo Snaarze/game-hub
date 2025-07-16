@@ -3,6 +3,7 @@ import useGames from "../../hooks/useGame";
 import FilterList from "../FilterList";
 import { Platform } from "../../hooks/usePlatforms";
 import { GameQuery } from "../../App";
+import GameTitle from "../CardList/GameTitle";
 
 interface Props {
   gameQuery: GameQuery;
@@ -28,6 +29,10 @@ const Section = ({
         platform={gameQuery.platform}
         sortOrder={sortOrder}
       />
+      <GameTitle gameQuery={gameQuery} />
+      {data.length < 1 && !isLoading && (
+        <p className="text-center mt-50 mr-50">No Games Found</p>
+      )}
       <CardList games={data} error={error} isLoading={isLoading} />
     </div>
   );

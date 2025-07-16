@@ -19,7 +19,7 @@ const FilterList = ({
 
   if (error) return null;
   return (
-    <div className="flex gap-10 mb-5">
+    <div className="flex gap-10 mb-6">
       <PlatformList data={data} onSelectPlatform={onSelectPlatform} />
       <OrderList onChangeOrder={onChangeOrder} sortOrder={sortOrder} />
     </div>

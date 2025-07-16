@@ -11,7 +11,7 @@ interface Props {
 
 const CardList = ({ games, error, isLoading }: Props) => {
   return (
-    <div className="w-full h-full flex flex-wrap gap-10 items-center">
+    <div className="w-full h-full flex flex-wrap gap-x-20 gap-y-10 items-center">
       {error && <p>{error}</p>}
       {isLoading && <div className="text-white text-3xl">Loading....</div>}
       {!isLoading &&
