@@ -21,7 +21,7 @@ const CardList = ({ games, error, isLoading }: Props) => {
       {!isLoading &&
         games.map((game) => (
           <div
-            className="border-none w-98 h-76 rounded-xl overflow-hidden bg-slate-800 hover:cursor-pointer transform"
+            className="border-none w-98 h-76 rounded-xl overflow-hidden bg-slate-800 hover:cursor-pointer hover:scale-105"
             key={game.id}
           >
             <img
