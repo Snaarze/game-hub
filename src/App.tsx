@@ -7,7 +7,7 @@ import { Platform } from "./hooks/usePlatforms";
 
 export interface GameQuery {
   genre: number;
-  platform: number | null | undefined;
+  platform: Platform | number | null | undefined;
   sortOrder: string;
   searchText: string;
   pageSize: number;

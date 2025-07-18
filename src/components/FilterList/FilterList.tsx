@@ -4,17 +4,12 @@ import PlatformList from "./PlatformList";
 import { Platform } from "../../hooks/usePlatforms";
 interface Props {
   onSelectPlatform: (platform: number | undefined) => void;
-  platform: Platform | null | undefined;
+
   onChangeOrder: (sortOrder: string) => void;
   sortOrder: string;
 }
 
-const FilterList = ({
-  onSelectPlatform,
-
-  onChangeOrder,
-  sortOrder,
-}: Props) => {
+const FilterList = ({ onSelectPlatform, onChangeOrder, sortOrder }: Props) => {
   const { data, error } = usePlatforms();
 
   if (error) return null;

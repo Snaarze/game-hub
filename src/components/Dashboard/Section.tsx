@@ -39,10 +39,9 @@ const Section = ({
       <FilterList
         onChangeOrder={onChangeOrder}
         onSelectPlatform={onSelectPlatform}
-        platform={gameQuery.platform}
         sortOrder={sortOrder}
       />
-      <GameTitle gameQuery={gameQuery} />
+      <GameTitle platform={gameQuery.platform?.slug} genre={gameQuery.genre} />
       {data && data?.pages[0].results[0] === undefined && !isLoading && (
         <p className="text-center mt-50 mr-50">No Games Found</p>
       )}

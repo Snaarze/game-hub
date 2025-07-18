@@ -1,14 +1,14 @@
-import React from "react";
 import { GameQuery } from "../../App";
+import { Genre } from "../../hooks/useGenre";
+import { Platform } from "../../hooks/usePlatforms";
 
 interface Props {
-  gameQuery: GameQuery;
+  platform: string | Platform;
+  genre: string | Genre;
 }
 
-const GameTitle = ({ gameQuery }: Props) => {
-  const heading = `${gameQuery.platform?.slug || ""} ${
-    gameQuery.genre?.name || ""
-  } Games`;
+const GameTitle = ({ platform, genre }: Props) => {
+  const heading = `${platform || ""} ${genre || ""} Games`;
   return <h1 className="font-bold text-3xl mb-2">{heading}</h1>;
 };
 
