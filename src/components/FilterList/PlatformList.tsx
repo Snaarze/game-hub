@@ -3,14 +3,14 @@ import { Platform } from "../../hooks/usePlatforms";
 
 interface Props {
   data: Platform[] | undefined;
-  onSelectPlatform: (platform: Platform) => void;
+  onSelectPlatform: (platform: number | undefined) => void;
 }
 
 const PlatformList = ({ data, onSelectPlatform }: Props) => {
   // this function is for filtering the data to get the only data we need such as platform object that matches the value
   const changePlatform = (e: ChangeEvent<HTMLSelectElement>) => {
     const filteredData = data?.find((plat) => plat.slug === e.target.value);
-    onSelectPlatform(filteredData);
+    onSelectPlatform(filteredData?.id);
   };
 
   return (

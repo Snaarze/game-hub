@@ -3,7 +3,7 @@ import OrderList from "./OrderList";
 import PlatformList from "./PlatformList";
 import { Platform } from "../../hooks/usePlatforms";
 interface Props {
-  onSelectPlatform: (platform: Platform | undefined) => void;
+  onSelectPlatform: (platform: number | undefined) => void;
   platform: Platform | null | undefined;
   onChangeOrder: (sortOrder: string) => void;
   sortOrder: string;

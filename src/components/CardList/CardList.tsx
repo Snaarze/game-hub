@@ -7,19 +7,20 @@ import { FetchResponse } from "../../hooks/useData";
 interface Props {
   games: FetchResponse<Game>[] | undefined;
   error: string | undefined;
-  isLoading: boolean;
+
+  isRefetching: boolean;
 }
 
-const CardList = ({ games, error, isLoading }: Props) => {
+const CardList = ({ games, error, isRefetching }: Props) => {
   return (
     <div className="w-full h-full flex flex-wrap gap-x-20 gap-y-10 items-center">
       {error && <p>{error}</p>}
-      {isLoading && (
+      {isRefetching && (
         <div className="text-white text-3xl w-full h-full flex justify-center mt-50 mr-50">
           Loading....
         </div>
       )}
-      {!isLoading &&
+      {!isRefetching &&
         games
           ?.flatMap((result) => result.results)
           .map((game) => (

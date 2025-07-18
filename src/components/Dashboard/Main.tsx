@@ -6,8 +6,8 @@ import { Platform } from "../../hooks/usePlatforms";
 
 interface Props {
   gameQuery: GameQuery;
-  onSelectPlatform: (platform: Platform | undefined) => void;
-  onSelectGenre: (genre: Genre) => void;
+  onSelectPlatform: (platform: number | undefined) => void;
+  onSelectGenre: (genre: number) => void;
   onChangeOrder: (sortOrder: string) => void;
   sortOrder: string;
 }

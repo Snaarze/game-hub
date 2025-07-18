@@ -4,10 +4,11 @@ import FilterList from "../FilterList";
 import { Platform } from "../../hooks/usePlatforms";
 import { GameQuery } from "../../App";
 import GameTitle from "../CardList/GameTitle";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 interface Props {
   gameQuery: GameQuery;
-  onSelectPlatform: (platform: Platform | undefined ) => void;
+  onSelectPlatform: (platform: number | undefined) => void;
   onChangeOrder: (sortOrder: string) => void;
   sortOrder: string;
 }
@@ -26,7 +27,12 @@ const Section = ({
     hasNextPage,
     fetchNextPage,
     isLoading,
+    isRefetching,
+    isFetching,
   } = useGames(gameQuery);
+
+  const fetchedData =
+    data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;
 
   return (
     <div className="flex-5 h-full ml-32">
@@ -40,12 +46,24 @@ const Section = ({
       {data && data?.pages[0].results[0] === undefined && !isLoading && (
         <p className="text-center mt-50 mr-50">No Games Found</p>
       )}
-      <CardList
-        games={data?.pages}
-        error={error?.message}
-        isLoading={isLoading}
-      />
-      {hasNextPage && (
+
+      <InfiniteScroll
+        dataLength={fetchedData}
+        hasMore={hasNextPage}
+        next={() => fetchNextPage()}
+        loader={
+          !isFetching && (
+            <p className="px-5 rounded-md py-2 my-5">Loading....</p>
+          )
+        }
+      >
+        <CardList
+          games={data?.pages}
+          error={error?.message}
+          isRefetching={isRefetching}
+        />
+      </InfiniteScroll>
+      {hasNextPage && !isFetching && (
         <button
           onClick={() => fetchNextPage()}
           className="bg-slate-700 px-5 rounded-md py-2 my-5"

@@ -2,8 +2,8 @@ import GenreList from "../GenreList";
 import { Genre } from "../../hooks/useGenre";
 
 interface Props {
-  onSelectedGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  onSelectedGenre: (genre: number) => void;
+  selectedGenre: number | null;
 }
 
 const Aside = ({ onSelectedGenre, selectedGenre }: Props) => {
