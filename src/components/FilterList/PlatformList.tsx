@@ -1,22 +1,18 @@
-import React, {
-  ChangeEvent,
-  ReactElement,
-  ReactEventHandler,
-  ReactNode,
-} from "react";
+import { ChangeEvent } from "react";
 import { Platform } from "../../hooks/usePlatforms";
 
 interface Props {
-  data: Platform[];
+  data: Platform[] | undefined;
   onSelectPlatform: (platform: Platform) => void;
 }
 
 const PlatformList = ({ data, onSelectPlatform }: Props) => {
   // this function is for filtering the data to get the only data we need such as platform object that matches the value
   const changePlatform = (e: ChangeEvent<HTMLSelectElement>) => {
-    const filteredData = data.filter((plat) => plat.slug === e.target.value);
-    onSelectPlatform(filteredData[0]);
+    const filteredData = data?.find((plat) => plat.slug === e.target.value);
+    onSelectPlatform(filteredData);
   };
+
   return (
     <div>
       <select
@@ -28,7 +24,7 @@ const PlatformList = ({ data, onSelectPlatform }: Props) => {
         <option value="" className=" ">
           Platform
         </option>
-        {data.map((platform) => (
+        {data?.map((platform) => (
           <option key={platform.id} className="">
             {platform.slug}
           </option>

@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import apiClient from "../services/api-client";
 import { AxiosRequestConfig, CanceledError } from "axios";
 
-interface FetchResponse<T>{
+export interface FetchResponse<T>{
     count :string,
+    next : string | null
     results : T[]
 }
 // request config is option which means the following data would be optional too, intialize the dependencies for changes in the fetching

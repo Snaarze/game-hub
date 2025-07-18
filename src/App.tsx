@@ -7,9 +7,10 @@ import { Platform } from "./hooks/usePlatforms";
 
 export interface GameQuery {
   genre: Genre | null;
-  platform: Platform | null;
+  platform: Platform | null | undefined;
   sortOrder: string;
   searchText: string;
+  pageSize: number;
 }
 
 function App() {
@@ -17,11 +18,15 @@ function App() {
 
   const onSelectedGenre = (genre: Genre) =>
     setGameQuery({ ...gameQuery, genre });
-  const onSelectPlatform = (platform: Platform) =>
+  const onSelectPlatform = (platform: Platform | undefined) => {
     setGameQuery({ ...gameQuery, platform });
+  };
+
+  console.log(gameQuery);
 
   const onChangeOrder = (sortOrder: string) =>
     setGameQuery({ ...gameQuery, sortOrder });
+
   return (
     <div className="app bg-slate-900 text-white">
       <div className="flex flex-col min-h-screen">

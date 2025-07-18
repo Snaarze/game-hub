@@ -9,7 +9,7 @@ const CriticScore = ({ score }: Props) => {
     <div
       className={`p-1  bg-slate-600 rounded-md w-8 text-center text-md text-${color}-700`}
     >
-      {score}
+      {score ? score : "-"}
     </div>
   );
 };

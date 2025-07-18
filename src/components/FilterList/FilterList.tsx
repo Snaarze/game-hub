@@ -1,26 +1,26 @@
-import usePlatfomrms, { Platform } from "../../hooks/usePlatforms";
+import usePlatforms from "../../hooks/usePlatforms";
 import OrderList from "./OrderList";
 import PlatformList from "./PlatformList";
-
+import { Platform } from "../../hooks/usePlatforms";
 interface Props {
-  onSelectPlatform: (platform: Platform) => void;
-  platform: Platform | null;
+  onSelectPlatform: (platform: Platform | undefined) => void;
+  platform: Platform | null | undefined;
   onChangeOrder: (sortOrder: string) => void;
   sortOrder: string;
 }
 
 const FilterList = ({
   onSelectPlatform,
-  platform,
+
   onChangeOrder,
   sortOrder,
 }: Props) => {
-  const { data, error } = usePlatfomrms();
+  const { data, error } = usePlatforms();
 
   if (error) return null;
   return (
     <div className="flex gap-10 mb-6">
-      <PlatformList data={data} onSelectPlatform={onSelectPlatform} />
+      <PlatformList data={data?.results} onSelectPlatform={onSelectPlatform} />
       <OrderList onChangeOrder={onChangeOrder} sortOrder={sortOrder} />
     </div>
   );

@@ -1,16 +1,21 @@
 import Aside from "./Aside";
 import Section from "./Section";
 import { GameQuery } from "../../App";
-import { Platform } from "../../hooks/usePlatforms";
 import { Genre } from "../../hooks/useGenre";
+import { Platform } from "../../hooks/usePlatforms";
 
 interface Props {
   gameQuery: GameQuery;
-  onSelectPlatform: (platform: Platform) => void;
+  onSelectPlatform: (platform: Platform | undefined) => void;
   onSelectGenre: (genre: Genre) => void;
   onChangeOrder: (sortOrder: string) => void;
   sortOrder: string;
 }
+
+// interface Params {
+//   gamequery: GameQuery;
+//   pageSize: number;
+// }
 
 const Main = ({
   onSelectPlatform,
