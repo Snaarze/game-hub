@@ -1,18 +1,9 @@
 import GenreList from "../GenreList";
-import { Genre } from "../../hooks/useGenre";
 
-interface Props {
-  onSelectedGenre: (genre: Genre) => void;
-  selectedGenre: Genre;
-}
-
-const Aside = ({ onSelectedGenre, selectedGenre }: Props) => {
+const Aside = () => {
   return (
     <div className="flex-1 xs:hidden">
-      <GenreList
-        onSelectedGenre={onSelectedGenre}
-        selectedGenre={selectedGenre}
-      />
+      <GenreList />
     </div>
   );
 };

@@ -1,7 +1,8 @@
 import { useInfiniteQuery, keepPreviousData } from "@tanstack/react-query";
-import { GameQuery } from "../App";
+
 import APIClient from "../services/api-client";
 import { Platform } from "./usePlatforms";
+import useGameStore from "./useGameStore";
 
 export interface Game {
   results: any;
@@ -16,7 +17,8 @@ export interface Game {
 // passed a dependencies if the current state changed to fetch the data and re-render the component
 // params can be any type of variables since the params are object it wil concat the url and the config of the params which will be /games?selected.id || id=1
 // each params will be used depending on the selected filtered by user they can be combined as those query are optionals
-const useGames = (gameQuery : GameQuery) => {
+const useGames = () => {
+  const gameQuery = useGameStore(set => set.gameQuery)
   const apiClient = new APIClient<Game>('games');
    const query = useInfiniteQuery({
     queryKey : ['games', gameQuery],

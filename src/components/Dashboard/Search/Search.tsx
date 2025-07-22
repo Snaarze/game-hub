@@ -1,17 +1,15 @@
 import { useRef } from "react";
+import useGameStore from "../../../hooks/useGameStore";
 
-interface Props {
-  onSearch: (search: string) => void;
-}
-
-const Search = ({ onSearch }: Props) => {
+const Search = () => {
+  const setSearchText = useGameStore((s) => s.setSearchText);
   const ref = useRef<HTMLInputElement>(null);
   return (
     <form
       className="flex flex-1 items-center justify-center px-32 ml-44"
       onSubmit={(event) => {
         event.preventDefault();
-        if (ref.current) onSearch(ref.current.value);
+        if (ref.current) setSearchText(ref.current.value);
       }}
     >
       <input

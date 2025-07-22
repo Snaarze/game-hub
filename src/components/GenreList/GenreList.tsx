@@ -1,14 +1,12 @@
-import useGenres, { Genre } from "../../hooks/useGenre";
+import useGameStore from "../../hooks/useGameStore";
+import useGenres from "../../hooks/useGenre";
 import getCroppedImageUrl from "../../services/image-url";
 
-interface Props {
-  onSelectedGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
-}
-
-const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
+const GenreList = () => {
+  const setGenre = useGameStore((set) => set.setGenre);
+  const selectedGenre = useGameStore((set) => set.gameQuery.genre?.id);
   const { data, error } = useGenres();
-  console.log(selectedGenre);
+
   if (error) return null;
 
   return (
@@ -19,10 +17,10 @@ const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
           <li
             key={genre.id}
             className={`flex gap-4 text-xl items-center hover:underline cursor-pointer ${
-              selectedGenre?.id === genre.id ? "font-bold" : "font-normal"
+              selectedGenre === genre.id ? "font-bold" : "font-normal"
             }`}
             onClick={() => {
-              onSelectedGenre(genre);
+              setGenre(genre);
             }}
           >
             <img

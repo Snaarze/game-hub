@@ -1,11 +1,9 @@
 import { ChangeEvent } from "react";
+import useGameStore from "../../hooks/useGameStore";
 
-interface Props {
-  onChangeOrder: (sortOrder: string) => void;
-  sortOrder: string;
-}
-
-const OrderList = ({ onChangeOrder, sortOrder }: Props) => {
+const OrderList = () => {
+  const setSortOrder = useGameStore((set) => set.setSortOrder);
+  const selectedOrder = useGameStore((set) => set.gameQuery.sortOrder);
   const order = [
     { value: "", label: "Relevance" },
     { value: "-added", label: "Date added" },
@@ -15,7 +13,7 @@ const OrderList = ({ onChangeOrder, sortOrder }: Props) => {
     { value: "-rating", label: "Average rating" },
   ];
 
-  const currentOrder = order.find((list) => list.value === sortOrder);
+  const currentOrder = order.find((list) => list.value === selectedOrder);
 
   return (
     <div>
@@ -24,7 +22,7 @@ const OrderList = ({ onChangeOrder, sortOrder }: Props) => {
         id=""
         className="w-68 p-2 rounded-lg bg-slate-700 text-white font-semibold"
         onChange={(e: ChangeEvent<HTMLSelectElement>) => {
-          onChangeOrder(e.target.value);
+          setSortOrder(e.target.value);
           console.log(e);
         }}
       >

@@ -1,17 +1,17 @@
 import { ChangeEvent } from "react";
 import { Platform } from "../../hooks/usePlatforms";
-import { filter } from "@chakra-ui/react";
+import useGameStore from "../../hooks/useGameStore";
 
 interface Props {
   data: Platform[] | undefined;
-  onSelectPlatform: (platform: Platform) => void;
 }
 
-const PlatformList = ({ data, onSelectPlatform }: Props) => {
+const PlatformList = ({ data }: Props) => {
+  const setPlatform = useGameStore((set) => set.setPlatform);
   // this function is for filtering the data to get the only data we need such as platform object that matches the value
   const changePlatform = (e: ChangeEvent<HTMLSelectElement>) => {
     const filteredData = data?.find((plat) => plat.slug === e.target.value);
-    if (filteredData) onSelectPlatform(filteredData);
+    if (filteredData) setPlatform(filteredData);
   };
 
   return (
