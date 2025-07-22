@@ -5,12 +5,14 @@ import { Platform } from "./usePlatforms";
 import useGameStore from "./useGameStore";
 
 export interface Game {
-  results: any;
   id: number;
   name: string;
+  slug : string
   background_image : string
   parent_platforms : {platform : Platform}[]
   metacritic : number
+  description_raw : string
+  background_image_additional : string
 }
 
 // this function is flexible as this receive parameters which are built in for axios parameters for dynamic query
