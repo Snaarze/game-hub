@@ -1,5 +1,5 @@
-import { Genre } from "../components/entities/Genre";
-import { Platform } from "./usePlatforms";
+import { Genre } from "./Genre";
+import {Platform} from "./Platform"
 
 
 

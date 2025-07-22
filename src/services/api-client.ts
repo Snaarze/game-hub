@@ -16,8 +16,8 @@ class APIClient<T> {
     }
     // type is not needed here because we are already specifying the data type on the class itself
     // need to make the function to arrow function to remove the bind of the this pointer and point it to the function who call it
-    get = (id : number | string)  => {
-        return axiosInstance.get<T>(this.endpoint + "/" + id).then(res => res.data)
+    get = (id : number | string, requestConfig: AxiosRequestConfig)  => {
+        return axiosInstance.get<T>(this.endpoint + "/" + id, requestConfig).then(res => res.data)
     }
     // params for query filtering
     getAll = (requestConfig : AxiosRequestConfig) =>  {

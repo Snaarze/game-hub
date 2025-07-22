@@ -27,7 +27,7 @@ const CardList = ({ games, error, isRefetching }: Props) => {
           .map((game) => (
             <NavLink
               to={`games/${game.slug}`}
-              className="border-nonerounded-xl overflow-hidden bg-slate-800 hover:cursor-pointer hover:scale-105 w-98 h-76 "
+              className="border-none rounded-xl overflow-hidden bg-slate-800 hover:cursor-pointer hover:scale-105 w-98 h-76 "
               key={game.id}
             >
               <img
