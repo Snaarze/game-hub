@@ -1,19 +1,8 @@
 import { useInfiniteQuery, keepPreviousData } from "@tanstack/react-query";
 
 import APIClient from "../services/api-client";
-import { Platform } from "./usePlatforms";
 import useGameStore from "./useGameStore";
-
-export interface Game {
-  id: number;
-  name: string;
-  slug : string
-  background_image : string
-  parent_platforms : {platform : Platform}[]
-  metacritic : number
-  description_raw : string
-  background_image_additional : string
-}
+import { Game } from "../components/entities/Game";
 
 // this function is flexible as this receive parameters which are built in for axios parameters for dynamic query
 // passed a dependencies if the current state changed to fetch the data and re-render the component
