@@ -8,7 +8,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 interface Props {
   gameQuery: GameQuery;
-  onSelectPlatform: (platform: number | undefined) => void;
+  onSelectPlatform: (platform: Platform | undefined) => void;
   onChangeOrder: (sortOrder: string) => void;
   sortOrder: string;
 }
@@ -41,7 +41,7 @@ const Section = ({
         onSelectPlatform={onSelectPlatform}
         sortOrder={sortOrder}
       />
-      <GameTitle platform={gameQuery.platform?.slug} genre={gameQuery.genre} />
+      <GameTitle platform={gameQuery.platform} genre={gameQuery.genre} />
       {data && data?.pages[0].results[0] === undefined && !isLoading && (
         <p className="text-center mt-50 mr-50">No Games Found</p>
       )}

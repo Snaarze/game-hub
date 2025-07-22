@@ -3,8 +3,8 @@ import { Genre } from "../../hooks/useGenre";
 import { Platform } from "../../hooks/usePlatforms";
 
 interface Props {
-  platform: string | Platform;
-  genre: string | Genre;
+  platform: Platform | null | undefined;
+  genre: Genre;
 }
 
 const GameTitle = ({ platform, genre }: Props) => {

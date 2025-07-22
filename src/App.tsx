@@ -6,8 +6,8 @@ import { Genre } from "./hooks/useGenre";
 import { Platform } from "./hooks/usePlatforms";
 
 export interface GameQuery {
-  genre: number;
-  platform: Platform | number | null | undefined;
+  genre: Genre;
+  platform: Platform | null | undefined;
   sortOrder: string;
   searchText: string;
   pageSize: number;
@@ -16,11 +16,11 @@ export interface GameQuery {
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
-  const onSelectedGenre = (genre: number) => {
+  const onSelectedGenre = (genre: Genre) => {
     setGameQuery({ ...gameQuery, genre });
   };
 
-  const onSelectPlatform = (platform: number | undefined) => {
+  const onSelectPlatform = (platform: Platform | undefined) => {
     setGameQuery({ ...gameQuery, platform });
   };
 

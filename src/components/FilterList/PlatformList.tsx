@@ -1,16 +1,17 @@
 import { ChangeEvent } from "react";
 import { Platform } from "../../hooks/usePlatforms";
+import { filter } from "@chakra-ui/react";
 
 interface Props {
   data: Platform[] | undefined;
-  onSelectPlatform: (platform: number | undefined) => void;
+  onSelectPlatform: (platform: Platform) => void;
 }
 
 const PlatformList = ({ data, onSelectPlatform }: Props) => {
   // this function is for filtering the data to get the only data we need such as platform object that matches the value
   const changePlatform = (e: ChangeEvent<HTMLSelectElement>) => {
     const filteredData = data?.find((plat) => plat.slug === e.target.value);
-    onSelectPlatform(filteredData?.id);
+    if (filteredData) onSelectPlatform(filteredData);
   };
 
   return (
