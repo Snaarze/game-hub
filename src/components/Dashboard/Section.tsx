@@ -3,7 +3,7 @@ import useGames from "../../hooks/useGame";
 import FilterList from "../FilterList";
 import GameTitle from "../CardList/GameTitle";
 import InfiniteScroll from "react-infinite-scroll-component";
-import useGameStore from "../../hooks/useGameStore";
+// import useGameStore from "../../hooks/useGameStore";
 
 const Section = () => {
   // selectedGenre is the initial state of the useGame, which could be null or re-fetch on the server
