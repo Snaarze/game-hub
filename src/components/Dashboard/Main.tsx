@@ -8,7 +8,7 @@ import Section from "./Section";
 
 const Main = () => {
   return (
-    <div className="flex h-full w-full mt-5">
+    <div className="flex w-full bg-slate-900 text-white">
       <Aside />
       <Section />
     </div>

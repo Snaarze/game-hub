@@ -3,6 +3,7 @@ import IconList from "./IconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../../services/image-url";
 import { FetchResponse } from "../../hooks/useData";
+import { NavLink } from "react-router-dom";
 
 interface Props {
   games: FetchResponse<Game>[] | undefined;
@@ -24,7 +25,8 @@ const CardList = ({ games, error, isRefetching }: Props) => {
         games
           ?.flatMap((result) => result.results)
           .map((game) => (
-            <div
+            <NavLink
+              to={`games/${game.id}`}
               className="border-nonerounded-xl overflow-hidden bg-slate-800 hover:cursor-pointer hover:scale-105 w-98 h-76 "
               key={game.id}
             >
@@ -42,7 +44,7 @@ const CardList = ({ games, error, isRefetching }: Props) => {
                 </ul>
                 <CriticScore score={game.metacritic} />
               </div>
-            </div>
+            </NavLink>
           ))}
     </div>
   );
