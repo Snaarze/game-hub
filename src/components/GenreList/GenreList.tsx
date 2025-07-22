@@ -19,10 +19,10 @@ const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
           <li
             key={genre.id}
             className={`flex gap-4 text-xl items-center hover:underline cursor-pointer ${
-              selectedGenre === genre.id ? "font-bold" : "font-normal"
+              selectedGenre?.id === genre.id ? "font-bold" : "font-normal"
             }`}
             onClick={() => {
-              onSelectedGenre(genre.id);
+              onSelectedGenre(genre);
             }}
           >
             <img
