@@ -1,5 +1,8 @@
+import { GameTrailer } from "./GameTrailer";
 import { Genre } from "./Genre";
 import { Platform } from "./Platform";
+import { publishers } from "./Publisher";
+
 
 
 export interface Game {
@@ -13,4 +16,6 @@ export interface Game {
   background_image_additional: string;
   platforms : {platform : Platform}[]
   genres :  Genre[];
+  publishers : publishers[]
+  trailer : GameTrailer[]
 }
