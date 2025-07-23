@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { GameQueryStore } from "../components/entities/GameQueryStore";
+import  GameQueryStore  from "../components/entities/GameQueryStore";
 
 
 const useGameStore = create<GameQueryStore>( set => ({

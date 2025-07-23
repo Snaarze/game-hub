@@ -1,4 +1,4 @@
-import { publishers } from "../entities/Publisher";
+import publishers from "../entities/Publisher";
 
 interface Props {
   publisher: publishers[];
@@ -6,10 +6,10 @@ interface Props {
 
 const Publisher = ({ publisher }: Props) => {
   return (
-    <div className="w-1/2">
+    <div className="max-w-1/2">
       <h1 className="text-slate-500 text-md font-bold">Publisher</h1>
-      {publisher.map((publish) => (
-        <p>{publish ? publish.name : "-"}</p>
+      {publisher.map((publish, index) => (
+        <p key={index}>{publish ? publish.name : "-"}</p>
       ))}
     </div>
   );

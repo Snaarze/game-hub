@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 // import apiClient, { axiosInstance } from "../services/api-client";
 import APIClient from "../services/api-client";
-import { Platform } from "../components/entities/Platform";
+import Platform  from "../components/entities/Platform";
 
 const apiCLient = new APIClient<Platform>('platforms/lists/parents')
 

@@ -2,11 +2,9 @@ import { useParams } from "react-router-dom";
 import useGameDescription from "../../hooks/useGameDescription";
 import ExpandableText from "./ExpandableText";
 import PlatformDetails from "./PlatformDetails";
-import useGenres from "../../hooks/useGenre";
 import GenreDetails from "./GenreDetails";
 import Metascore from "./Metascore";
 import Publisher from "./Publisher";
-import useGameTrailer from "../../hooks/useGameTrailer";
 import GameTrailer from "./GameTrailer";
 import GameScreenshotsPreview from "./GameScreenshotsPreview";
 
@@ -23,8 +21,8 @@ const GameDetails = () => {
   if (error || !game) throw error;
 
   return (
-    <div className="flex mx-5">
-      <div className="bg-slate-900 text-white">
+    <div className="sm:block md:flex mx-5">
+      <div className="bg-slate-900 text-white md:flex-1">
         <h1 className="text-3xl">{game.name}</h1>
         <ExpandableText>{game.description_raw}</ExpandableText>
         <div className="flex flex-wrap gap-y-5">
@@ -33,8 +31,10 @@ const GameDetails = () => {
           <GenreDetails genre={game.genres} />
           <Publisher publisher={game?.publishers} />
         </div>
+      </div>
+      <div className="md:flex-1">
         <GameTrailer slug={slug!} />
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap gap-y-1">
           <GameScreenshotsPreview slug={slug!} />
         </div>
       </div>

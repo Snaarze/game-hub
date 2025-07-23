@@ -1,4 +1,4 @@
-import { Platform } from "../entities/Platform";
+import Platform from "../entities/Platform";
 
 interface Props {
   parent_platforms: { platform: Platform }[];

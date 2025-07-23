@@ -1,4 +1,3 @@
-import React from "react";
 import logo from "../../assets/img/Logo/logo.webp";
 import Search from "./Search";
 import { Link } from "react-router-dom";

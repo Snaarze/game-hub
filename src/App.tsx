@@ -2,8 +2,8 @@ import { useState } from "react";
 import "./App.css";
 import Main from "./components/Dashboard/Main";
 import Navbar from "./components/Dashboard/Navbar";
-import { Genre } from "./components/entities/Genre";
-import { Platform } from "./components/entities/Platform";
+import Genre from "./components/entities/Genre";
+import Platform from "./components/entities/Platform";
 import { Outlet } from "react-router-dom";
 
 function App() {

@@ -1,4 +1,3 @@
-import React from "react";
 import useGameScreenshots from "../../hooks/useGameScreenshots";
 
 interface Props {
@@ -6,13 +5,12 @@ interface Props {
 }
 const GameScreenshotsPreview = ({ slug }: Props) => {
   const { data, error, isLoading } = useGameScreenshots(slug!);
-  if (error || !data) throw error;
 
   if (isLoading) return <p>Loading.....</p>;
   return (
     <>
-      {data?.results.map((result) => (
-        <img className="sm:w-full md:w-1/2" src={result.image} />
+      {data?.results.map((result, index) => (
+        <img key={index} className="sm:w-full md:w-1/2" src={result.image} />
       ))}
     </>
   );

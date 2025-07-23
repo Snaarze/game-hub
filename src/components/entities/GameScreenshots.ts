@@ -1,4 +1,4 @@
-export interface GameScreenshots {
+export default  interface GameScreenshots {
    image: string
         
 }
