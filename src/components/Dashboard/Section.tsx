@@ -22,7 +22,7 @@ const Section = () => {
     data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;
 
   return (
-    <div className="flex-5 h-full ml-32">
+    <div className="flex-1 sm:flex-5 h-full flex flex-col justify-center">
       <FilterList />
       <GameTitle />
       {data && data?.pages[0].results[0] === undefined && !isLoading && (

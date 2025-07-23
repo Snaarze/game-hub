@@ -7,7 +7,7 @@ const FilterList = () => {
 
   if (error) return null;
   return (
-    <div className="flex gap-10 mb-6">
+    <div className="hidden sm:flex gap-10 mb-6 md:ml-32 ">
       <PlatformList data={data?.results} />
       <OrderList />
     </div>

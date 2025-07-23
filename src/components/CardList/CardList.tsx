@@ -15,7 +15,7 @@ interface Props {
 const CardList = ({ games, error, isRefetching }: Props) => {
   console.log(games);
   return (
-    <div className="w-full h-full flex flex-wrap gap-x-20 gap-y-10 items-center">
+    <div className="flex flex-wrap items-center justify-center sm:w-full h-full  gap-x-20  md :gap-x-10 ">
       {error && <p>{error}</p>}
       {isRefetching && (
         <div className="text-white text-3xl w-full h-full flex justify-center mt-50 mr-50">

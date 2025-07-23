@@ -8,7 +8,7 @@ const Search = () => {
   const ref = useRef<HTMLInputElement>(null);
   return (
     <form
-      className="flex flex-1 items-center justify-center px-32 ml-44"
+      className="hidden sm:flex flex-1   md:items-center justify-center  "
       onSubmit={(event) => {
         event.preventDefault();
         if (ref.current) setSearchText(ref.current.value);
@@ -17,7 +17,7 @@ const Search = () => {
       <input
         ref={ref}
         type="text"
-        className="flex-1 bg-slate-600 py-2 px-10 rounded-3xl"
+        className="flex-1 bg-slate-600 py-2 px-10 rounded-3xl "
         placeholder="Search games..."
         onKeyDown={(event) => event.key === "Enter" && navigate("/")}
       />

@@ -2,7 +2,7 @@ import GenreList from "../GenreList";
 
 const Aside = () => {
   return (
-    <div className="flex-1 xs:hidden">
+    <div className="hidden sm:block flex-1 ">
       <GenreList />
     </div>
   );
