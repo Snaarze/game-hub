@@ -5,7 +5,7 @@ import PlatformDetails from "./PlatformDetails";
 import GenreDetails from "./GenreDetails";
 import Metascore from "./Metascore";
 import Publisher from "./Publisher";
-import GameTrailer from "./GameTrailer";
+import GameTrailers from "./GameTrailer";
 import GameScreenshotsPreview from "./GameScreenshotsPreview";
 
 const GameDetails = () => {
@@ -33,7 +33,7 @@ const GameDetails = () => {
         </div>
       </div>
       <div className="md:flex-1">
-        <GameTrailer slug={slug!} />
+        <GameTrailers slug={slug!} />
         <div className="flex flex-wrap gap-y-1">
           <GameScreenshotsPreview slug={slug!} />
         </div>

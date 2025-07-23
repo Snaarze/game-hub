@@ -1,5 +1,5 @@
 import { ChangeEvent } from "react";
-import { Platform } from "../entities/Platform";
+import Platform from "../entities/Platform";
 import useGameStore from "../../hooks/useGameStore";
 
 interface Props {
